@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "tarefas",
-    "slug": "tarefas",
+    "name": "tarefas-app",
+    "slug": "tarefas-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "tarefas",
+    "scheme": "tarefasapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -43,19 +43,6 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    },
-    "extra": {
-      "router": {},
-      "eas": {
-        "projectId": "0e3ebfd9-6e33-4756-bcc1-14e0a2e883e1"
-      }
-    },
-    "owner": "layzanicolle",
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/0e3ebfd9-6e33-4756-bcc1-14e0a2e883e1"
     }
   }
 }
