@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const urlBase = "https://tarefas-api-aos.vercel.app/tarefas";
-
+const urlBase = "https://aos-2026-1-delta.vercel.app/tarefas";
 export async function getTarefas() {
   const response = await axios.get(urlBase);
   return response.data; 
