@@ -35,10 +35,10 @@ export default function SobreScreen() {
             <MaterialCommunityIcons name="file-account-outline" size={36} color="#fff" />
           </View>
           <Text style={styles.bannerTitle}>Currículo App</Text>
-          <Text style={styles.bannerVersion}>v1.0.0 — AOS 2026</Text>
+          <Text style={styles.bannerVersion}>v1.0.0 — PDM 2026</Text>
           <Text style={styles.bannerDesc}>
-            Aplicativo mobile para gerenciamento de currículos profissionais,
-            consumindo a API Currículo AOS 2026 hospedada na Vercel.
+            Aplicativo mobile de portfólio desenvolvido por Layza Nicolle Costa Silva,
+            consumindo API REST própria hospedada na Vercel com banco de dados Neon DB.
           </Text>
         </Surface>
 
@@ -100,19 +100,34 @@ export default function SobreScreen() {
           </Card.Content>
         </Card>
 
+        <Text style={styles.sectionLabel}>Desenvolvedora</Text>
+        <Card style={styles.card}>
+          <Card.Content>
+            <Text style={styles.techNome}>Layza Nicolle Costa Silva</Text>
+            <Text style={styles.techDesc}>Analista de dados · Sistemas para Internet — UNICAP</Text>
+            <Divider style={[styles.innerDivider, { marginVertical: 12 }]} />
+            <Text
+              style={styles.apiUrl}
+              onPress={() => Linking.openURL("https://github.com/LayzaNicolle")}
+            >
+              github.com/LayzaNicolle
+            </Text>
+          </Card.Content>
+        </Card>
+
         <Text style={styles.sectionLabel}>Back-end</Text>
         <Card style={styles.card}>
           <Card.Content>
             <Text style={styles.apiLabel}>URL base</Text>
             <Text
               style={styles.apiUrl}
-              onPress={() => Linking.openURL("https://curriculo-api-aos-2026.vercel.app/api")}
+              onPress={() => Linking.openURL("https://layzanicolle-aos-2026-1.vercel.app")}
             >
-              curriculo-api-aos-2026.vercel.app/api
+              layzanicolle-aos-2026-1.vercel.app
             </Text>
             <Divider style={[styles.innerDivider, { marginVertical: 12 }]} />
             <Text style={styles.techDesc}>
-              API RESTful desenvolvida para a disciplina AOS 2026, hospedada na Vercel.
+              API RESTful própria hospedada na Vercel com banco de dados Neon DB (PostgreSQL).
               Recursos: usuários, experiências acadêmicas, profissionais e projetos.
             </Text>
           </Card.Content>
@@ -127,65 +142,20 @@ export default function SobreScreen() {
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: C.bg },
   content: { padding: 16 },
-
-  banner: {
-    backgroundColor: C.primary,
-    borderRadius: 16,
-    padding: 28,
-    alignItems: "center",
-    marginBottom: 24,
-  },
-  bannerIcon: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: "rgba(255,255,255,0.18)",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  banner: { backgroundColor: C.primary, borderRadius: 16, padding: 28, alignItems: "center", marginBottom: 24 },
+  bannerIcon: { width: 64, height: 64, borderRadius: 32, backgroundColor: "rgba(255,255,255,0.18)", alignItems: "center", justifyContent: "center" },
   bannerTitle: { color: "#fff", fontSize: 22, fontWeight: "700", marginTop: 14 },
   bannerVersion: { color: "rgba(255,255,255,0.6)", fontSize: 12, marginTop: 4 },
-  bannerDesc: {
-    color: "rgba(255,255,255,0.82)",
-    fontSize: 13,
-    textAlign: "center",
-    marginTop: 12,
-    lineHeight: 20,
-    paddingHorizontal: 8,
-  },
-
-  sectionLabel: {
-    fontSize: 11,
-    fontWeight: "700",
-    color: C.textMuted,
-    textTransform: "uppercase",
-    letterSpacing: 0.8,
-    marginBottom: 10,
-    marginLeft: 2,
-  },
+  bannerDesc: { color: "rgba(255,255,255,0.82)", fontSize: 13, textAlign: "center", marginTop: 12, lineHeight: 20, paddingHorizontal: 8 },
+  sectionLabel: { fontSize: 11, fontWeight: "700", color: C.textMuted, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 10, marginLeft: 2 },
   card: { borderRadius: 14, backgroundColor: C.surface, marginBottom: 20 },
-  cardExtra: {
-    borderRadius: 14,
-    backgroundColor: C.primaryLight,
-    borderLeftWidth: 4,
-    borderLeftColor: C.primary,
-    marginBottom: 20,
-  },
-
+  cardExtra: { borderRadius: 14, backgroundColor: C.primaryLight, borderLeftWidth: 4, borderLeftColor: C.primary, marginBottom: 20 },
   techRow: { flexDirection: "row", alignItems: "center", gap: 14, paddingHorizontal: 16, paddingVertical: 12 },
-  techIconWrap: {
-    width: 36,
-    height: 36,
-    borderRadius: 10,
-    backgroundColor: C.primaryLight,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  techIconWrap: { width: 36, height: 36, borderRadius: 10, backgroundColor: C.primaryLight, alignItems: "center", justifyContent: "center" },
   techInfo: { flex: 1 },
   techNome: { fontSize: 14, fontWeight: "600", color: C.textPrimary },
   techDesc: { fontSize: 12, color: C.textSecondary, marginTop: 2 },
   innerDivider: { backgroundColor: C.border, marginHorizontal: 16 },
-
   telaRow: { flexDirection: "row", gap: 12, paddingHorizontal: 16, paddingVertical: 12 },
   telaLeft: { paddingTop: 5 },
   telaDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: C.primary },
@@ -194,12 +164,10 @@ const styles = StyleSheet.create({
   telaNameRow: { flexDirection: "row", alignItems: "center", gap: 8 },
   telaNome: { fontSize: 14, fontWeight: "600", color: C.textPrimary },
   telaDesc: { fontSize: 12, color: C.textSecondary, marginTop: 3, lineHeight: 18 },
-
   extraTitle: { fontSize: 15, fontWeight: "700", color: C.primary, marginBottom: 8 },
   extraDesc: { fontSize: 13, color: C.textSecondary, lineHeight: 20 },
   extraChips: { flexDirection: "row", flexWrap: "wrap", gap: 8, marginTop: 14 },
   featureChip: { backgroundColor: C.surface },
-
   apiLabel: { fontSize: 11, color: C.textMuted, marginBottom: 4, textTransform: "uppercase", letterSpacing: 0.5 },
   apiUrl: { fontSize: 13, color: C.primary, fontWeight: "600", textDecorationLine: "underline" },
 });

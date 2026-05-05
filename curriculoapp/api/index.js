@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://curriculo-api-aos-2026.vercel.app/api";
-
+const BASE_URL = "https://layzanicolle-aos-2026-1.vercel.app/api";
 const api = axios.create({
   baseURL: BASE_URL,
   headers: { "Content-Type": "application/json" },

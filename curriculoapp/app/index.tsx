@@ -6,7 +6,7 @@ import {
 import {
   Text, Card, Button, Portal, Modal, TextInput,
   ActivityIndicator, Snackbar, Avatar, Chip, Divider,
-  IconButton, TouchableRipple,
+  IconButton,
 } from "react-native-paper";
 import { useRouter } from "expo-router";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
@@ -88,7 +88,7 @@ export default function HomeScreen() {
       <View style={styles.header}>
         <View>
           <Text style={styles.headerTitle}>Currículo App</Text>
-          <Text style={styles.headerSub}>AOS 2026</Text>
+          <Text style={styles.headerSub}>Layza Nicolle — PDM 2026</Text>
         </View>
         <IconButton
           icon="information-outline"
@@ -98,10 +98,7 @@ export default function HomeScreen() {
         />
       </View>
 
-      <ScrollView
-        contentContainerStyle={styles.scroll}
-        keyboardShouldPersistTaps="handled"
-      >
+      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
         {isLoading ? (
           <ActivityIndicator size="large" color={C.primary} style={styles.centered} />
         ) : isError ? (
@@ -147,7 +144,6 @@ export default function HomeScreen() {
 
                   <View style={styles.chipRow}>
                     <Chip
-                      
                       onPress={() => router.push(`/usuario/${id}/curriculo`)}
                       style={styles.chipPrimary}
                       textStyle={styles.chipPrimaryText}
@@ -187,24 +183,8 @@ export default function HomeScreen() {
                   <Divider style={styles.divider} />
 
                   <Card.Actions style={styles.cardActions}>
-                    <Button
-                      icon="pencil-outline"
-                      mode="text"
-                      onPress={() => abrirEditar(u)}
-                      textColor={C.primary}
-                      compact
-                    >
-                      Editar
-                    </Button>
-                    <Button
-                      icon="trash-can-outline"
-                      mode="text"
-                      onPress={() => confirmarDeletar(u)}
-                      textColor={C.danger}
-                      compact
-                    >
-                      Remover
-                    </Button>
+                    <Button icon="pencil-outline" mode="text" onPress={() => abrirEditar(u)} textColor={C.primary} compact>Editar</Button>
+                    <Button icon="trash-can-outline" mode="text" onPress={() => confirmarDeletar(u)} textColor={C.danger} compact>Remover</Button>
                   </Card.Actions>
                 </Card>
               );
@@ -213,14 +193,7 @@ export default function HomeScreen() {
         )}
 
         {!isLoading && !isError && usuarios.length > 0 && (
-          <Button
-            mode="contained"
-            icon="plus"
-            onPress={abrirCriar}
-            buttonColor={C.primary}
-            style={styles.addBtn}
-            contentStyle={styles.addBtnContent}
-          >
+          <Button mode="contained" icon="plus" onPress={abrirCriar} buttonColor={C.primary} style={styles.addBtn} contentStyle={styles.addBtnContent}>
             Novo usuário
           </Button>
         )}
@@ -229,116 +202,55 @@ export default function HomeScreen() {
       </ScrollView>
 
       <Portal>
-        <Modal
-          visible={modalVisible}
-          onDismiss={() => setModalVisible(false)}
-          contentContainerStyle={styles.modalWrapper}
-        >
-          <KeyboardAvoidingView
-            behavior={Platform.OS === "ios" ? "padding" : "height"}
-          >
+        <Modal visible={modalVisible} onDismiss={() => setModalVisible(false)} contentContainerStyle={styles.modalWrapper}>
+          <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
             <View style={styles.modal}>
-              <Text style={styles.modalTitle}>
-                {editando ? "Editar usuário" : "Novo usuário"}
-              </Text>
-
-              <TextInput
-                label="Nome *"
-                value={form.nome}
-                onChangeText={(v) => setForm({ ...form, nome: v })}
-                mode="outlined"
-                style={styles.input}
-                outlineColor={C.border}
-                activeOutlineColor={C.primary}
-              />
-              <TextInput
-                label="E-mail *"
-                value={form.email}
-                onChangeText={(v) => setForm({ ...form, email: v })}
-                mode="outlined"
-                keyboardType="email-address"
-                autoCapitalize="none"
-                style={styles.input}
-                outlineColor={C.border}
-                activeOutlineColor={C.primary}
-              />
-              <TextInput
-                label="Bio"
-                value={form.bio}
-                onChangeText={(v) => setForm({ ...form, bio: v })}
-                mode="outlined"
-                multiline
-                numberOfLines={3}
-                style={styles.input}
-                outlineColor={C.border}
-                activeOutlineColor={C.primary}
-              />
-
+              <Text style={styles.modalTitle}>{editando ? "Editar usuário" : "Novo usuário"}</Text>
+              <TextInput label="Nome *" value={form.nome} onChangeText={(v) => setForm({ ...form, nome: v })} mode="outlined" style={styles.input} outlineColor={C.border} activeOutlineColor={C.primary} />
+              <TextInput label="E-mail *" value={form.email} onChangeText={(v) => setForm({ ...form, email: v })} mode="outlined" keyboardType="email-address" autoCapitalize="none" style={styles.input} outlineColor={C.border} activeOutlineColor={C.primary} />
+              <TextInput label="Bio" value={form.bio} onChangeText={(v) => setForm({ ...form, bio: v })} mode="outlined" multiline numberOfLines={3} style={styles.input} outlineColor={C.border} activeOutlineColor={C.primary} />
               <View style={styles.modalActions}>
-                <Button onPress={() => setModalVisible(false)} textColor={C.textSecondary} disabled={isSaving}>
-                  Cancelar
-                </Button>
-                <Button mode="contained" onPress={salvar} buttonColor={C.primary} loading={isSaving} disabled={isSaving}>
-                  Salvar
-                </Button>
+                <Button onPress={() => setModalVisible(false)} textColor={C.textSecondary} disabled={isSaving}>Cancelar</Button>
+                <Button mode="contained" onPress={salvar} buttonColor={C.primary} loading={isSaving} disabled={isSaving}>Salvar</Button>
               </View>
             </View>
           </KeyboardAvoidingView>
         </Modal>
       </Portal>
 
-      <Snackbar visible={snackVisible} onDismiss={() => setSnackVisible(false)} duration={3000}>
-        {snackMsg}
-      </Snackbar>
+      <Snackbar visible={snackVisible} onDismiss={() => setSnackVisible(false)} duration={3000}>{snackMsg}</Snackbar>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: C.headerBg },
-
-  header: {
-    backgroundColor: C.headerBg,
-    paddingHorizontal: 20,
-    paddingVertical: 14,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
+  header: { backgroundColor: C.headerBg, paddingHorizontal: 20, paddingVertical: 14, flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
   headerTitle: { color: C.headerText, fontSize: 20, fontWeight: "700" },
   headerSub: { color: "rgba(255,255,255,0.65)", fontSize: 12, marginTop: 1 },
-
   scroll: { padding: 16, backgroundColor: C.bg },
   scrollFooter: { height: 32 },
-
   centered: { marginTop: 72 },
-
   emptyBox: { alignItems: "center", paddingTop: 72, paddingHorizontal: 32 },
   emptyTitle: { fontSize: 16, fontWeight: "600", color: C.textPrimary, marginTop: 4 },
   emptySub: { fontSize: 13, color: C.textMuted, textAlign: "center", marginTop: 6, lineHeight: 18 },
   retryBtn: { marginTop: 20, borderRadius: 8 },
-
   countLabel: { fontSize: 12, color: C.textMuted, marginBottom: 12, marginLeft: 2, textTransform: "uppercase", letterSpacing: 0.5 },
-
   card: { marginBottom: 14, borderRadius: 14, backgroundColor: C.surface },
   cardTop: { flexDirection: "row", alignItems: "center", gap: 12, paddingBottom: 12 },
   cardInfo: { flex: 1 },
   cardName: { fontSize: 15, fontWeight: "700", color: C.textPrimary },
   cardEmail: { fontSize: 12, color: C.textSecondary, marginTop: 2 },
   cardBio: { fontSize: 12, color: C.textMuted, marginTop: 4, fontStyle: "italic" },
-
   chipRow: { flexDirection: "row", flexWrap: "wrap", gap: 6, paddingHorizontal: 16, paddingBottom: 12 },
   chipPrimary: { backgroundColor: C.primary },
   chipPrimaryText: { color: "#fff", fontSize: 11 },
   chipOutline: { backgroundColor: C.primaryLight },
   chipOutlineText: { color: C.primary, fontSize: 11 },
-
   divider: { backgroundColor: C.border },
   cardActions: { paddingHorizontal: 4, paddingVertical: 2 },
-
   addBtn: { marginTop: 8, borderRadius: 10 },
   addBtnContent: { paddingVertical: 4 },
-
   modalWrapper: { margin: 24 },
   modal: { backgroundColor: C.surface, borderRadius: 18, padding: 24 },
   modalTitle: { fontSize: 17, fontWeight: "700", color: C.textPrimary, marginBottom: 18 },
