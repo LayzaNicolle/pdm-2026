@@ -1,23 +1,18 @@
 export const C = {
-  primary:      "#4F46E5", 
-  primaryDark:  "#3730A3",
-  primaryLight: "#EEF2FF",
-
-  accent:       "#F59E0B", 
-  accentLight:  "#FEF3C7",
-
-  danger:       "#EF4444",
-  dangerLight:  "#FEE2E2",
-  success:      "#10B981",
-
-  bg:           "#F8F7FF",
-  surface:      "#FFFFFF",
-  border:       "#E5E7EB",
-
-  textPrimary:  "#111827",
-  textSecondary:"#6B7280",
-  textMuted:    "#9CA3AF",
-
-  headerBg:     "#4F46E5",
-  headerText:   "#FFFFFF",
+  primary:       "#D4737A", // rose amulet — nem vivo nem apagado
+  primaryDark:   "#B85C63", // rose escuro suave
+  primaryLight:  "#FAEEF0", // rose clarinho
+  accent:        "#E8A0A7", // rose accent suave
+  accentLight:   "#F9E4E6", // rose accent bem claro
+  danger:        "#E05555",
+  dangerLight:   "#FDEAEA",
+  success:       "#10B981",
+  bg:            "#FDF6F7", // fundo quase branco com toque rosado
+  surface:       "#FFFFFF",
+  border:        "#EDD8DA", // borda rosada discreta
+  textPrimary:   "#2D1B1E", // quase preto com tom quente
+  textSecondary: "#7A5A5E", // cinza rosado
+  textMuted:     "#B89498", // muted rosado suave
+  headerBg:      "#D4737A", // header combinando
+  headerText:    "#FFFFFF",
 };
