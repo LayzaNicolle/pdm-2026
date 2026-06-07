@@ -47,15 +47,15 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "a0ba8e92-d45f-4709-9a42-af3d61c61216"
+        "projectId": "71166264-f500-463f-b5fd-7a6624b24607"
       }
     },
     "runtimeVersion": {
       "policy": "appVersion"
     },
-    "owner": "layzanicolle",
+    "owner": "mobile20261",
     "updates": {
-      "url": "https://u.expo.dev/a0ba8e92-d45f-4709-9a42-af3d61c61216"
+      "url": "https://u.expo.dev/71166264-f500-463f-b5fd-7a6624b24607"
     }
   }
 }
